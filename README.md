@@ -10,7 +10,8 @@ Simple .ini parser for node, supports sections
 ## Installation
 git:
 	git clone
-
+npm:
+	npm install iniparser
 ## License 
 
 (The MIT License)
