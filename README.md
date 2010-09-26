@@ -2,7 +2,7 @@
 
 Simple .ini parser for node, supports sections
 
-	var iniparser = require('./node-iniparser');
+	var iniparser = require('iniparser');
 	iniparser.parse('./config.ini', function(data){
 		var version = data.version;
 	});
