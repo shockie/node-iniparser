@@ -1,0 +1,4 @@
+LIB_PREFIX = ~/.node_libraries
+install:
+	echo 'Hello'
+.PHONY: install
