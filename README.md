@@ -2,10 +2,15 @@
 
 Simple .ini parser for node, supports sections
 
+To parse a .ini file async:
 	var iniparser = require('iniparser');
 	iniparser.parse('./config.ini', function(data){
 		var version = data.version;
 	});
+
+To parse a .ini file sync:
+	var iniparser = require('iniparser');
+	var config = iniparser.parseSync('./config.ini');	
 
 ## Installation
 npm:
