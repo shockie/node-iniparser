@@ -4,7 +4,7 @@ Simple .ini parser for node, supports sections
 
 To parse a .ini file async:
 	var iniparser = require('iniparser');
-	iniparser.parse('./config.ini', function(data){
+	iniparser.parse('./config.ini', function(err,data){
 		var version = data.version;
 	});
 
