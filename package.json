@@ -6,5 +6,9 @@
 	"main": "./lib/node-iniparser",
 	"directories": {
 		"lib": "./lib"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/shockie/node-iniparser.git"
 	}
 }
