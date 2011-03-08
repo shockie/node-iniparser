@@ -10,12 +10,12 @@ To parse a .ini file async:
 
 To parse a .ini file sync:
 	var iniparser = require('iniparser');
-	var config = iniparser.parseSync('./config.ini');	
+	var config = iniparser.parseSync('./config.ini');
 
 ## Installation
 npm:
 	npm install iniparser
-## License 
+## License
 
 (The MIT License)
 
