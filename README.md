@@ -12,6 +12,10 @@ To parse a .ini file sync:
 	var iniparser = require('iniparser');
 	var config = iniparser.parseSync('./config.ini');
 
+To parse a string in .ini format:
+	var iniparser = require('iniparser');
+	var config = iniparser.parseString('foo=bar');
+
 ## Installation
 npm:
 	npm install iniparser
