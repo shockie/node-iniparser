@@ -1,6 +1,6 @@
 {
 	"name": "iniparser",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "a simple .ini parser",
 	"author": "Jordy van Gelder <jordyvangelder@gmail.com>",
 	"main": "./lib/node-iniparser",
