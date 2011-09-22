@@ -48,7 +48,7 @@ module.exports = {
 		assert.notEqual(config.section2, null);
 		assert.equal(config.section2.bar, 'foo');
 	},
-	'varible with space at the end': function () {
+	'variable with space at the end': function () {
 		var config = iniparser.parseSync('./files/test.ini');
 		assert.notEqual('bar ', config.var_with_space_at_end);
 		assert.equal('bar', config.var_with_space_at_end);
