@@ -1,24 +1,26 @@
 # Node .ini parser
 
 Simple .ini parser for node, supports sections
-
+``` javascript
 To parse a .ini file async:
 	var iniparser = require('iniparser');
 	iniparser.parse('./config.ini', function(err,data){
 		var version = data.version;
 	});
-
+```
 To parse a .ini file sync:
-	var iniparser = require('iniparser');
+``` javascript
+var iniparser = require('iniparser');
 	var config = iniparser.parseSync('./config.ini');
-
+```
 To parse a string in .ini format:
-	var iniparser = require('iniparser');
+``` javascript
+var iniparser = require('iniparser');
 	var config = iniparser.parseString('foo=bar');
-
+```
 ## Installation
 npm:
-	npm install iniparser
+`npm install iniparser`
 ## License
 
 (The MIT License)
