@@ -52,5 +52,9 @@ module.exports = {
 		var config = iniparser.parseSync('./files/test.ini');
 		assert.notEqual('bar ', config.var_with_space_at_end);
 		assert.equal('bar', config.var_with_space_at_end);
+	},
+	'look for a commented out variable': function(){
+		var config = iniparser.parseSync('./files/test.ini');
+		assert.equal(config.section2.test, null);
 	}
 };
