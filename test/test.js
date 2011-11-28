@@ -52,5 +52,21 @@ module.exports = {
 		var config = iniparser.parseSync('./files/test.ini');
 		assert.notEqual('bar ', config.var_with_space_at_end);
 		assert.equal('bar', config.var_with_space_at_end);
-	}
+	},
+  'value with spaces': function () {
+    var config = iniparser.parseSync('./files/test.ini');
+    assert.notEqual('foo bar ', config.value_with_spaces);
+    assert.equal('foo bar', config.value_with_spaces);
+  },
+  'value with double quotes': function () {
+    var config = iniparser.parseSync('./files/test.ini');
+    assert.notEqual('"Foo Bar"', config.value_with_double_quotes);
+    assert.equal('Foo Bar', config.value_with_double_quotes);
+  },
+  'value with single quotes': function () {
+    var config = iniparser.parseSync('./files/test.ini');
+    assert.notEqual("'Foo Bar'", config.value_with_single_quotes);
+    assert.equal('Foo Bar', config.value_with_single_quotes);
+  }
+
 };
