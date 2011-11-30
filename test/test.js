@@ -67,6 +67,15 @@ module.exports = {
     var config = iniparser.parseSync('./files/test.ini');
     assert.notEqual("'Foo Bar'", config.value_with_single_quotes);
     assert.equal('Foo Bar', config.value_with_single_quotes);
+  },
+  'values whith irish names': function () {
+    var config = iniparser.parseSync('./files/test.ini');
+    assert.notEqual("O", config.value_with_oshea_single_quotes);
+    assert.equal('O\'Shea', config.value_with_single_quote_oshea_single_quote);
+    assert.equal('O"Shea', config.value_with_double_quote_oshea_single_quote);
+    assert.equal('O\'Shea', config.value_with_single_quote_oshea_double_quote);
+    assert.equal('O"Shea', config.value_with_double_quote_oshea_double_quote);
+    assert.equal('\'""\'', config.value_with_a_varaity_of_quotes);
   }
 
 };
