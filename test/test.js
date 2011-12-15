@@ -56,5 +56,9 @@ module.exports = {
 	'look for a commented out variable': function(){
 		var config = iniparser.parseSync('./files/test.ini');
 		assert.equal(config.section2.test, null);
+	},
+	'variable with space in value': function(){
+		var config = iniparser.parseSync('./files/test.ini');
+		assert.equal(config.section2.there_is, "a space in here with = and trailing tab");
 	}
 };
