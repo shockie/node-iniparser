@@ -9,7 +9,7 @@ module.exports = {
 	},
 	'async read non-existing file': function(){
 		iniparser.parse('./files/doesnotexists.ini', function(err, config){
-			assert.equal(err.errno, 2);
+			assert.equal(err.code, 'ENOENT');
 			assert.equal(config, null);
 		});
 	},
