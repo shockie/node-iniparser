@@ -66,4 +66,24 @@ describe('node-iniparser', function(){
 		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.equal(config.section2.there_is, "a space in here with = and trailing tab");
 	});
+
+	it('asynchronously allows blank lines in section', function(done){
+		iniparser.parse(path.join(__dirname, './files/test.ini'), {
+			skip_blank_lines: true
+		}, function(err, config){
+			assert.notEqual(config.foo, 'bar');
+			assert.equal(config.DEFAULT.foo, 'bar');
+			assert.equal(config.section3.allows, 'blank lines');
+			done();
+		});
+	});
+
+	it('synchronously allows blank lines in section', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'), {
+			skip_blank_lines: true
+		});
+		assert.notEqual(config.foo, 'bar');
+		assert.equal(config.DEFAULT.foo, 'bar');
+		assert.equal(config.section3.allows, 'blank lines');
+	});
 });
