@@ -1,64 +1,69 @@
 var assert = require('assert'),
+	path = require('path'),
 	iniparser = require('../lib/node-iniparser');
 
-module.exports = {
-	'async read file': function(){
-		iniparser.parse('./files/test.ini', function(err, config){
+describe('node-iniparser', function(){
+	it('async read file', function(done){
+		iniparser.parse(path.join(__dirname, './files/test.ini'), function(err, config){
 			assert.equal(err, null);
+			done();
 		});
-	},
-	'async read non-existing file': function(){
-		iniparser.parse('./files/doesnotexists.ini', function(err, config){
+	});
+	it('async read non-existing file', function(done){
+		iniparser.parse(path.join(__dirname, './files/doesnotexists.ini'), function(err, config){
 			assert.equal(err.code, 'ENOENT');
 			assert.equal(config, null);
+			done();
 		});
-	},
-	'sync read file': function(){
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('sync read file', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.notEqual(config, null);
-	},
-	'sync read non-existing file': function(){
+	});
+	it('sync read non-existing file', function(){
 		assert.throws(function(){
-			var config = iniparser.parseSync('./files/doesnotexists.ini');
+			var config = iniparser.parseSync(path.join(__dirname, './files/doesnotexists.ini'));
 		});
-	},
-	'async read file and look for variable': function(){
-		iniparser.parse('./files/test.ini', function(err, config){
+	});
+	it('async read file and look for variable', function(done){
+		iniparser.parse(path.join(__dirname, './files/test.ini'), function(err, config){
 			assert.equal(err, null);
 			assert.equal(config.foo, 'bar');
+			done();
 		});
-	},
-	'async read file and look for section': function(){
-		iniparser.parse('./files/test.ini', function(err, config){
+	});
+	it('async read file and look for section', function(done){
+		iniparser.parse(path.join(__dirname, './files/test.ini'), function(err, config){
 			assert.equal(err, null);
 			assert.notEqual(config.worlds, null);
 			assert.equal(config.worlds.earth, 'awesome');
 			assert.notEqual(config.section2, null);
 			assert.equal(config.section2.bar, 'foo');
+			done();
 		});
-	},
-	'sync read file and look for variable': function(){
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('sync read file and look for variable', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.equal(config.foo, 'bar');
-	},
-	'sync read file and look for section': function(){
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('sync read file and look for section', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.notEqual(config.worlds, null);
 		assert.equal(config.worlds.earth, 'awesome');
 		assert.notEqual(config.section2, null);
 		assert.equal(config.section2.bar, 'foo');
-	},
-	'variable with space at the end': function () {
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('variable with space at the end', function () {
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.notEqual('bar ', config.var_with_space_at_end);
 		assert.equal('bar', config.var_with_space_at_end);
-	},
-	'look for a commented out variable': function(){
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('look for a commented out variable', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.equal(config.section2.test, null);
-	},
-	'variable with space in value': function(){
-		var config = iniparser.parseSync('./files/test.ini');
+	});
+	it('variable with space in value', function(){
+		var config = iniparser.parseSync(path.join(__dirname, './files/test.ini'));
 		assert.equal(config.section2.there_is, "a space in here with = and trailing tab");
-	}
-};
+	});
+});
