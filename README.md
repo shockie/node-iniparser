@@ -25,7 +25,7 @@ var config = iniparser.parseString('foo=bar');
 ## Options
 The following options can be passed in as the second parameter to all 3 parse methods:
 
-treatEmptyStringsAsNull: Stores a setting as a null value if an empty string is detected as the value.
+`treatEmptyStringsAsNull: boolean - Stores a setting as a null value if an empty string is detected as the value.`
 
 
 To parse a .ini file async with options:
