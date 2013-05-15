@@ -60,5 +60,11 @@ module.exports = {
 	'variable with space in value': function(){
 		var config = iniparser.parseSync('./files/test.ini');
 		assert.equal(config.section2.there_is, "a space in here with = and trailing tab");
-	}
+	},
+    'empty string as null option': function() {
+        var config = iniparser.parse('./files/test.ini', {treatEmptyStringsAsNull: true}, function(err, config) {
+            assert.equal(err, null);
+            assert.equal(config.var_with_empty_value, null);
+        });
+    }
 };
