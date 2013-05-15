@@ -21,6 +21,42 @@ To parse a string in .ini format:
 var iniparser = require('iniparser');
 var config = iniparser.parseString('foo=bar');
 </pre>
+
+## Options
+The following options can be passed in as the second parameter to all 3 parse methods:
+
+treatEmptyStringsAsNull: Stores a setting as a null value if an empty string is detected as the value.
+
+
+To parse a .ini file async with options:
+<pre>
+var iniparser = require('iniparser');
+var options = {
+    treatEmptyStringsAsNull: true
+}
+iniparser.parse('./config.ini', options, function(err,data){
+	var version = data.version;
+});
+</pre>
+
+To parse a .ini file sync with options:
+<pre>
+var iniparser = require('iniparser');
+var options = {
+    treatEmptyStringsAsNull: true
+}
+var config = iniparser.parseSync('./config.ini', options);
+</pre>
+
+To parse a string in .ini format with options:
+<pre>
+var iniparser = require('iniparser');
+var options = {
+    treatEmptyStringsAsNull: true
+}
+var config = iniparser.parseString('foo=bar', options);
+</pre>
+
 ## Installation
 npm:
 
