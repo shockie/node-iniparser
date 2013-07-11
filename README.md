@@ -11,7 +11,7 @@ iniparser.parse('./config.ini', function(err,data){
 ```
 
 To parse a `.ini` file sync:
-```javascript```
+```javascript
 var iniparser = require('iniparser');
 var config = iniparser.parseSync('./config.ini');
 ```
@@ -22,10 +22,10 @@ var iniparser = require('iniparser');
 var config = iniparser.parseString('foo=bar');
 ```
 ## Installation
-[npm]():
+Using [npm](https://npmjs.org/):
 
 ```bash
-npm install iniparser
+$ npm install iniparser
 ```
 ## License
 
