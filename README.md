@@ -1,30 +1,50 @@
-# Node .ini parser
+# Node .ini Parser
 
-Simple .ini parser for node, supports sections
-
-To parse a .ini file async:
-<pre>
-var iniparser = require('iniparser');
-iniparser.parse('./config.ini', function(err,data){
-	var version = data.version;
-});
-</pre>
-
-To parse a .ini file sync:
-<pre>
-var iniparser = require('iniparser');
-var config = iniparser.parseSync('./config.ini');
-</pre>
-
-To parse a string in .ini format:
-<pre>
-var iniparser = require('iniparser');
-var config = iniparser.parseString('foo=bar');
-</pre>
+Simple .ini parser for node, supports sections.
 ## Installation
 npm:
 
-`npm install iniparser`
+```bash
+npm install iniparser
+```
+
+## Usage
+To parse a .ini file async:
+```js
+var iniparser = require('iniparser');
+iniparser.parse('./config.ini', function(err, data) {
+    var version = data.version;
+});
+```
+
+To parse a .ini file sync:
+```js
+var iniparser = require('iniparser');
+var config = iniparser.parseSync('./config.ini');
+```
+
+To parse a string in .ini format:
+```js
+var iniparser = require('iniparser');
+var config = iniparser.parseString('foo=bar');
+```
+Optional `scan` argument. When `scan` is set to `true`, ini property value will be parsed. Default (`false`)
+```ini
+; example.ini
+name=foo bar
+age=33
+single=false
+```
+```js
+iniparser.parseSync('./example.ini');
+iniparser.parseSync('./example.ini', true); // use type scan.
+```
+Result
+```bash
+{ name: 'foo bar', age: 33, single: false }
+{ name: 'foo bar', age: '33', single: 'false' }
+```
+
 ## License
 
 (The MIT License)
