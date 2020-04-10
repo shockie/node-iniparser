@@ -41,8 +41,8 @@ iniparser.parseSync('./example.ini', true); // use type scan.
 ```
 Result
 ```bash
-{ name: 'foo bar', age: 33, single: false }
 { name: 'foo bar', age: '33', single: 'false' }
+{ name: 'foo bar', age: 33, single: false }
 ```
 
 ## License
