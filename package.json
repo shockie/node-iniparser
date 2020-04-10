@@ -7,8 +7,14 @@
 	"directories": {
 		"lib": "./lib"
 	},
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/shockie/node-iniparser.git"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shockie/node-iniparser.git"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"devDependencies": {
+		"mocha": "^3.0.0"
 	}
 }
